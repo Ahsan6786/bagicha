@@ -32,14 +32,16 @@ export default function Menu() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-full aspect-[3/4] md:aspect-auto md:min-h-[800px] rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-2xl border border-brand-primary/10"
+          className="relative w-full max-w-3xl mx-auto rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-2xl border border-brand-primary/10"
         >
           <Image
             src="/menu.png"
             alt="Bagicha Menu"
-            fill
-            className="object-contain md:object-cover bg-brand-surface"
-            sizes="100vw"
+            width={1200}
+            height={1600}
+            className="w-full h-auto object-contain bg-brand-surface"
+            sizes="(max-width: 768px) 100vw, 800px"
+            priority
           />
         </motion.div>
       </div>

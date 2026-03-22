@@ -98,7 +98,7 @@ export default function Hero() {
               </button>
               <Link 
                 href="/tour"
-                className="flex-1 px-6 py-3 md:py-4 bg-brand-accent text-brand-primary dark:text-brand-background rounded-full text-sm md:text-base font-medium hover:bg-brand-accent/90 transition-colors overflow-hidden group relative shadow-xl text-center"
+                className="flex-1 px-6 py-3 md:py-4 bg-brand-accent text-[#0f1712] rounded-full text-sm md:text-base font-bold hover:bg-brand-accent/90 transition-colors overflow-hidden group relative shadow-xl text-center"
               >
                 <span className="relative z-10">{t("watchTour")}</span>
               </Link>

@@ -31,7 +31,7 @@ export default function Thali() {
       </div>
 
       {/* Massive Thali Image - Static size, perfectly centered */}
-      <div className="relative flex items-center justify-center w-[95vw] h-[95vw] sm:w-[500px] sm:h-[500px] md:w-[600px] md:h-[600px] lg:w-[700px] lg:h-[700px] xl:w-[800px] xl:h-[800px] z-10 drop-shadow-[0_45px_65px_rgba(15,61,46,0.35)]">
+      <div className="relative flex items-center justify-center w-[95vw] h-[95vw] sm:w-[450px] sm:h-[450px] md:w-[500px] md:h-[500px] lg:w-[550px] lg:h-[550px] xl:w-[600px] xl:h-[600px] z-10 drop-shadow-[0_45px_65px_rgba(15,61,46,0.35)]">
         
         {/* First Thali */}
         <motion.div 

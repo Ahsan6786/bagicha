@@ -89,12 +89,12 @@ export default function Experience() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className={`flex flex-col gap-6 ${experiences[1].colSpan}`}
           >
-            <div className={`relative w-full ${experiences[1].height} rounded-[4rem] sm:rounded-[6rem] md:rounded-[8rem] overflow-hidden group shadow-md isolate transform-gpu`}>
+            <div className={`relative w-[calc(100%+3rem)] -mx-6 md:w-full md:mx-0 ${experiences[1].height} rounded-none md:rounded-[8rem] overflow-hidden group shadow-md isolate transform-gpu`}>
               <Image 
                 src={experiences[1].image as string} 
                 alt={experiences[1].title}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-[2.5s] ease-out will-change-transform"
+                className="object-cover scale-[1.05] group-hover:scale-[1.10] transition-transform duration-[2.5s] ease-out will-change-transform"
                 sizes="(max-width: 768px) 100vw, 100vw"
               />
             </div>
