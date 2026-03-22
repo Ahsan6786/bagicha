@@ -22,7 +22,7 @@ export default function About() {
             className="relative"
           >
             {/* Entrance Photo */}
-            <div className="relative aspect-[4/5] rounded-[10rem] sm:rounded-[12rem] md:rounded-[16rem] lg:rounded-full overflow-hidden group shadow-2xl z-10 border border-brand-primary/10 transform-gpu isolate">
+            <div className="relative aspect-[4/5] rounded-[4rem] sm:rounded-[6rem] md:rounded-[8rem] overflow-hidden group shadow-2xl z-10 border border-brand-primary/10 transform-gpu isolate">
               <Image
                 src="/enter.png"
                 alt="Bagicha Entrance"

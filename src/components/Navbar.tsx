@@ -18,17 +18,8 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   
-  const { language, setLanguage, t, setIsBookingModalOpen } = useLanguage();
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkMode]);
+  const { language, setLanguage, t, setIsBookingModalOpen, isDarkMode, setIsDarkMode } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
