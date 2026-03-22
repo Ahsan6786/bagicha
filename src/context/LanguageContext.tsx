@@ -20,7 +20,7 @@ const LanguageContext = createContext<LanguageContextProps | undefined>(undefine
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>("en");
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-  const [isDarkMode, setIsDarkModeState] = useState(false);
+  const [isDarkMode, setIsDarkModeState] = useState(true);
 
   // Load saved preference on mount
   useEffect(() => {
@@ -29,14 +29,14 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       setLanguageState(savedLang);
     }
     
-    // Load dark mode preference
+    // Load dark mode preference (Default to Dark)
     const savedTheme = localStorage.getItem("bagicha_theme");
-    if (savedTheme === "dark") {
-      setIsDarkModeState(true);
-      document.documentElement.classList.add("dark");
-    } else if (savedTheme === "light") {
+    if (savedTheme === "light") {
       setIsDarkModeState(false);
       document.documentElement.classList.remove("dark");
+    } else {
+      setIsDarkModeState(true);
+      document.documentElement.classList.add("dark");
     }
   }, []);
 

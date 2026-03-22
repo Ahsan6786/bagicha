@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="dark scroll-smooth">
       <body
         className={`${newsreader.variable} ${beVietnamPro.variable} font-sans antialiased text-brand-primary bg-brand-background overflow-x-hidden`}
       >
