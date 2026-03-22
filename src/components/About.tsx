@@ -22,17 +22,20 @@ export default function About() {
             className="relative"
           >
             {/* Entrance Photo */}
-            <div className="relative aspect-[4/5] rounded-[4rem] sm:rounded-[6rem] md:rounded-[8rem] overflow-hidden group shadow-2xl z-10 border border-brand-primary/10 transform-gpu isolate">
+            <div 
+              className="relative aspect-[4/5] rounded-[4rem] sm:rounded-[6rem] md:rounded-[8rem] overflow-hidden group shadow-2xl z-10 border border-brand-primary/10 transform-gpu isolate"
+              style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+            >
               <Image
                 src="/enter.png"
                 alt="Bagicha Entrance"
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out will-change-transform"
+                className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out will-change-transform rounded-[4rem] sm:rounded-[6rem] md:rounded-[8rem]"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
               />
               {/* Decorative overlay for luxury feel */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary/40 to-transparent pointer-events-none mix-blend-multiply" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary/40 to-transparent pointer-events-none mix-blend-multiply rounded-[4rem] sm:rounded-[6rem] md:rounded-[8rem]" />
             </div>
             
             {/* Decorative element */}

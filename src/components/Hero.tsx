@@ -61,6 +61,16 @@ export default function Hero() {
           {t("bagicha")}
         </motion.h1>
 
+        {/* Resort & Restaurant text */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-xl md:text-3xl font-serif italic text-brand-accent mb-8 md:mb-10 tracking-widest mt-[-0.5rem] md:mt-[-1rem]"
+        >
+          Resort & Restaurant
+        </motion.p>
+
         {/* The rest of the content pushed down below the branches */}
         <motion.div
            initial={{ opacity: 0, y: 30 }}
