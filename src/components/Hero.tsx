@@ -34,15 +34,25 @@ export default function Hero() {
       */}
       <motion.div 
         style={{ y: yTree }}
-        className="absolute top-0 left-0 w-full h-full pointer-events-none z-10 flex"
+        className="absolute top-0 left-0 w-full h-[85svh] md:h-full pointer-events-none z-10 flex"
       >
+        {/* Desktop Image */}
         <Image 
           src="/tree.jpg"
           alt="Lush green tree branch frame"
           fill
-          className="object-contain sm:object-cover object-top opacity-95 block mix-blend-multiply"
+          className="hidden md:block object-contain sm:object-cover object-top opacity-95 mix-blend-multiply"
           priority
-          sizes="(max-width: 768px) 100vw, 100vw"
+          sizes="100vw"
+        />
+        {/* Mobile Image */}
+        <Image 
+          src="/por.png"
+          alt="Lush green portrait frame"
+          fill
+          className="block md:hidden object-fill object-top opacity-95 mix-blend-multiply"
+          priority
+          sizes="100vw"
         />
         {/* Soft gradient overlay to fade out the hard bottom edge of the image if any */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-background/90" />
@@ -56,7 +66,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] font-serif text-brand-primary leading-[1] italic tracking-tight drop-shadow-lg text-center w-full"
+          className="text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] font-serif text-[#fdfbf7] dark:text-brand-primary leading-[1] italic tracking-tight drop-shadow-lg text-center w-full mt-16 md:mt-0"
         >
           {t("bagicha")}
         </motion.h1>
@@ -66,7 +76,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-xl md:text-3xl font-serif italic text-brand-accent mb-8 md:mb-10 tracking-widest mt-[-0.5rem] md:mt-[-1rem]"
+          className="text-lg md:text-3xl font-serif italic text-[#c19d60] dark:text-brand-accent mb-8 md:mb-10 tracking-widest mt-[-0.2rem] md:mt-[-1rem]"
         >
           Resort & Restaurant
         </motion.p>
@@ -76,7 +86,7 @@ export default function Hero() {
            initial={{ opacity: 0, y: 30 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 1, delay: 0.3 }}
-           className="flex flex-col items-center text-center mt-[15vh] sm:mt-[20vh] md:mt-[25vh] pb-12 z-40 relative"
+           className="flex flex-col items-center text-center mt-[70vh] sm:mt-[75vh] md:mt-[25vh] pb-12 z-40 relative w-full pt-4 md:pt-0"
         >
           <span className="inline-block mb-4 md:mb-6 tracking-[0.2em] md:tracking-[0.3em] text-[10px] md:text-xs font-bold uppercase text-brand-secondary bg-brand-background/50 backdrop-blur-sm px-4 py-1.5 rounded-full">
             {t("graminLuxe")}

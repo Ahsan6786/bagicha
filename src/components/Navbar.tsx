@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Moon, Sun } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
@@ -19,7 +19,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   
-  const { language, setLanguage, t, setIsBookingModalOpen, isDarkMode, setIsDarkMode } = useLanguage();
+  const { language, setLanguage, t, setIsBookingModalOpen } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,14 +109,6 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {/* Dark Mode Toggle Desktop */}
-          <button 
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className="text-brand-primary/80 hover:text-brand-primary transition-colors p-2"
-          >
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
-
           <button
             onClick={() => setIsBookingModalOpen(true)}
             className="px-6 py-2.5 bg-brand-primary text-brand-background rounded-full hover:bg-brand-primary/90 transition-all font-medium text-sm tracking-wide cursor-pointer"
@@ -125,17 +117,10 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Nav Toggle & Dark Mode */}
+        {/* Mobile Nav Toggle */}
         <div className="flex md:hidden items-center gap-2 z-50">
-          <button 
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className="text-brand-primary p-2"
-          >
-            {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
-          </button>
-          
           <button
-            className="text-brand-primary p-2"
+            className={`p-2 transition-colors ${!isScrolled && !isMobileMenuOpen ? "text-[#fdfbf7] drop-shadow-md" : "text-brand-primary"}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}

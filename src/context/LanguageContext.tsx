@@ -11,8 +11,6 @@ interface LanguageContextProps {
   t: (key: keyof typeof translations) => string;
   isBookingModalOpen: boolean;
   setIsBookingModalOpen: (isOpen: boolean) => void;
-  isDarkMode: boolean;
-  setIsDarkMode: (isDark: boolean) => void;
 }
 
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
@@ -20,7 +18,6 @@ const LanguageContext = createContext<LanguageContextProps | undefined>(undefine
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>("en");
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-  const [isDarkMode, setIsDarkModeState] = useState(true);
 
   // Load saved preference on mount
   useEffect(() => {
@@ -29,15 +26,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       setLanguageState(savedLang);
     }
     
-    // Load dark mode preference (Default to Dark)
-    const savedTheme = localStorage.getItem("bagicha_theme");
-    if (savedTheme === "light") {
-      setIsDarkModeState(false);
-      document.documentElement.classList.remove("dark");
-    } else {
-      setIsDarkModeState(true);
-      document.documentElement.classList.add("dark");
-    }
+    // Force Dark Theme Hardcoded
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("bagicha_theme", "dark");
   }, []);
 
   const setLanguage = (lang: Language) => {
@@ -45,23 +36,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     localStorage.setItem("bagicha_lang", lang);
   };
 
-  const setIsDarkMode = (isDark: boolean) => {
-    setIsDarkModeState(isDark);
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("bagicha_theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("bagicha_theme", "light");
-    }
-  };
-
   const t = (key: keyof typeof translations) => {
     return translations[key]?.[language] || translations[key]?.en || key;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t, isBookingModalOpen, setIsBookingModalOpen, isDarkMode, setIsDarkMode }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, isBookingModalOpen, setIsBookingModalOpen }}>
       {children}
     </LanguageContext.Provider>
   );
